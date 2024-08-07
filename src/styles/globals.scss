@@ -51,6 +51,7 @@ video {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: 100px;
 }
 
 .container {
@@ -61,7 +62,7 @@ video {
     @include xl {
     }
     @include lg {
-        padding: 0 25px;    
+        padding: 0 25px;
     }
     @include md {
         padding: 0 16px;

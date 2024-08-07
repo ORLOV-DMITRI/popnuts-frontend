@@ -23,7 +23,9 @@ export default function RootLayout({
         <QueryProvider>
             <Header/>
             <main className={'main'}>
-                {children}
+                <div className="container">
+                    {children}
+                </div>
             </main>
             <NavMobile/>
         </QueryProvider>

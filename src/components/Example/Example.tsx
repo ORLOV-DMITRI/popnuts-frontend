@@ -1,11 +1,12 @@
 'use client'
-import React from 'react';
+import React, {useEffect} from 'react';
 import Link from "next/link";
 import {useInView} from "react-intersection-observer";
 import {useInfiniteQuery} from "@tanstack/react-query";
 import {ProductsResponse} from "@/types";
 import ProductCard from "@/components/ProductCard/ProductCard";
 import styles from './Header.module.scss'
+
 function Example() {
     const { ref, inView } = useInView();
 
@@ -24,7 +25,7 @@ function Example() {
         queryKey: ['products'],
         queryFn: async ({ pageParam = 0 }) => {
             const limit = 10;
-            const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${pageParam * limit}`);
+            const response = await fetch(`https://dummyjson.com/products?limit=${limit}&skip`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
@@ -37,16 +38,19 @@ function Example() {
         initialPageParam: 0,
     });
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (inView && hasNextPage) {
             fetchNextPage();
         }
     }, [fetchNextPage, inView, hasNextPage]);
-
+    
+    useEffect(() => {
+        console.log(isFetchingNextPage)
+    }, [isFetchingNextPage])
     return (
         <div>
             <h1>Infinite Loading</h1>
-            {status === 'loading' ? (
+            {status === 'pending' ? (
                 <p>Loading...</p>
             ) : status === 'error' ? (
                 <span>Error: {(error as Error).message}</span>

@@ -1,0 +1,39 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+.scrollToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: $primary;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    transform: rotate(-90deg);
+    
+    &:hover {
+        background-color: #fff;
+    }
+    &:hover svg {
+       color: $primary;
+    }
+    
+    svg {
+        transition: 0.3s ease;
+    }
+}
+
+.scrollToTop.show {
+    opacity: 1;
+    visibility: visible;
+}
+

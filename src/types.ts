@@ -1,5 +1,5 @@
 export type Product1 = {
-    
+
 }
 
 
@@ -40,4 +40,5 @@ export type ProductsResponse = {
     total: number;
     skip: number;
     limit: number;
+    pageParam: number
 };

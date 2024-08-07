@@ -1,12 +1,12 @@
-import axios, {AxiosRequestConfig} from "axios";
+import axios, {CreateAxiosDefaults} from "axios";
 
-import {baseUrl} from "./constants";
-
+const baseUrl = 'few'
 export function getJWTHeader(userToken: string): Record<string, string> {
     return {Authorization: `Bearer ${userToken}`};
 }
 
-const config: AxiosRequestConfig = {baseURL: baseUrl};
+const config: CreateAxiosDefaults  = {baseURL: 'baseUrl'};
+
 export const axiosInstance = axios.create(config);
 
 
