@@ -7,6 +7,9 @@ const nextConfig = {
         });
         return config;
     },
+    images: {
+        domains: ['cdn.dummyjson.com'],
+    },
 };
 
 export default nextConfig;

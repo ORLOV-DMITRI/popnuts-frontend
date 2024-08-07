@@ -1,0 +1,22 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+.productCard {
+    width: 220px;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.productImgWrapper {
+    
+}
+.productImg {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  
+}

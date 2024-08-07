@@ -1,0 +1,44 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+.nav {
+    display: none;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    padding: 0 16px;
+    
+    @include md {
+        display: flex;
+    }
+}
+
+.actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.navItem {
+    padding: 12px 0;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+        width: 30px;
+        height: 30px;
+        color: #D3D4DD;
+        fill: #D3D4DD;
+        transition: 0.3s;
+        
+        &:hover {
+            color: $primary;
+            fill: $primary;
+
+        }
+    }
+}

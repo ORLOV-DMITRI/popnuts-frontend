@@ -1,6 +1,15 @@
 @import "@/styles/_variables";
 @import "@/styles/_mixins.scss";
 
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
 .header {
     position: fixed;
     right: 0;
