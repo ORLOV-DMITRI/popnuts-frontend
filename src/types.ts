@@ -40,5 +40,10 @@ export type ProductsResponse = {
     total: number;
     skip: number;
     limit: number;
-    pageParam: number
 };
+
+export type Category = {
+    slug: string
+    name: string,
+    url: string
+}

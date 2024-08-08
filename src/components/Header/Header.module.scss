@@ -54,6 +54,7 @@
         display: none;
     }
 }
+
 .menuLine {
     width: 26px;
     height: 3px;
@@ -85,6 +86,17 @@
     }
     &:before {
         top: -11px;
+    }
+}
+.menu.open .menuLine{
+    background: 0 0;
+    &:before {
+        top: -9px;
+        transform: translateX(4px) translateZ(0) rotate(45deg);
+    }
+    &:after {
+        bottom: -9px;
+        transform: translateX(4px) translateZ(0) rotate(-45deg);
     }
 }
 .search {

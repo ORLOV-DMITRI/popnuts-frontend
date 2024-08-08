@@ -1,29 +1,40 @@
-import styles from './ProductCard.module.scss'
+import React, {forwardRef} from 'react';
+import styles from './ProductCard.module.scss';
 import Link from "next/link";
 import {Product} from "@/types";
 import Image from "next/image";
-import StarIcon from '/public/svg/star.svg'
+import LikeIcon from '/public/svg/like.svg';
+import Rating from "@/components/ui/Rating/Rating";
+import Button from "@/components/ui/Button/Button";
+import cn from "classnames";
 
 type Props = {
-    product: Product
-}
+    product: Product;
+    onOpenModal?: () => void;
+};
 
-export default function ProductCard({product}: Props) {
+const ProductCard = forwardRef<HTMLDivElement, Props>(({product, onOpenModal}, ref) => {
     const discountAmount = product.price * (product.discountPercentage / 100);
     const discountedPrice = product.price - discountAmount;
-    
+
     const maxStock = 100;
     const stockPercentage = (product.stock / maxStock) * 100;
-    
+
     return (
-        <article className={styles.productCard}>
+        <article className={cn(styles.productCard, ref && 'Тут')} ref={ref}>
             <div className={styles.wrapper}>
-                <Link className={styles.productLink} href='#'></Link>
+                <Link className={styles.productLink} href={`/category/${product.category}/${product.id}`}></Link>
                 <div className={styles.top}>
                     <div className={styles.productImgWrapper}>
                         <Image className={styles.productImg} src={product.thumbnail} alt={product.title} width={200}
                                height={250}/>
                     </div>
+                    <button className={styles.showMore} onClick={onOpenModal}>
+                        Quick view
+                    </button>
+                    <button className={styles.favorites}>
+                        <LikeIcon/>
+                    </button>
                 </div>
                 <div className={styles.middle}>
                     <h2 className={styles.title} title={product.title}>{product.title}</h2>
@@ -31,29 +42,19 @@ export default function ProductCard({product}: Props) {
                         <ins className={styles.priceDiscount}>
                             {discountedPrice.toFixed(2)}$
                         </ins>
-                        {/* Цена со скидкой */}
                         <del className={styles.priceFull}>
                             {product.price.toFixed(2)}
                         </del>
-                        {/* Исходная цена */}
                     </div>
                     <div className={styles.brand}>
-                        <span>{product.brand}</span>
+                        {product.brand ?
+                            (<span>{product.brand}</span>)
+                            :
+                            (<span>No brand</span>)
+                        }
+
                     </div>
-                    <div className={styles.rating}>
-                        <div className={styles.ratingStart}>
-                            <span className={styles.starIcon}>
-                                <StarIcon/>
-                            </span>
-                            <span>{product.rating}</span>
-                        </div>
-                        {product.reviews.length > 0 && (
-                            <div className={styles.ratingCount}>
-                                {product.reviews.length} reviews
-                            </div>
-                        )}
-                    </div>
-                    
+                    <Rating rating={product.rating} countReviews={product?.reviews?.length}/>
                     <div className={styles.thermometerWrap}>
                         {product.stock === 0 && (
                             <div className={styles.thermometerText}>not available</div>
@@ -72,8 +73,14 @@ export default function ProductCard({product}: Props) {
                         )}
                     </div>
                 </div>
-                <button className={styles.addBtn}>Add to cart</button>
+                <div className={styles.addBtn}>
+                    <Button>Add to cart</Button>
+                </div>
             </div>
         </article>
     );
-}
+});
+
+ProductCard.displayName = 'ProductCard';
+
+export default ProductCard;

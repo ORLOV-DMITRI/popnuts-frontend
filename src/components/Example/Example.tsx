@@ -44,9 +44,6 @@ function Example() {
         }
     }, [fetchNextPage, inView, hasNextPage]);
     
-    useEffect(() => {
-        console.log(isFetchingNextPage)
-    }, [isFetchingNextPage])
     return (
         <div>
             <h1>Infinite Loading</h1>

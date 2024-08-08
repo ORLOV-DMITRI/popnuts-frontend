@@ -1,17 +1,13 @@
 import axios, {CreateAxiosDefaults} from "axios";
 
-const baseUrl = 'few'
-export function getJWTHeader(userToken: string): Record<string, string> {
-    return {Authorization: `Bearer ${userToken}`};
-}
 
-const config: CreateAxiosDefaults  = {baseURL: 'baseUrl'};
+const config: CreateAxiosDefaults  = {baseURL: 'https://dummyjson.com/products/'};
 
-export const axiosInstance = axios.create(config);
+export const apiClient = axios.create(config);
 
 
-axiosInstance.interceptors.request.use((config) => {
-    const token = localStorage?.getItem('token'); // Или получите токен из другого источника
+apiClient.interceptors.request.use((config) => {
+    const token = ''; // Или получите токен из другого источника
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
     }

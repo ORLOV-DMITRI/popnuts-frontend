@@ -1,13 +1,13 @@
-
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
 .products {
+    display: contents;
+}
+.productList {
     display: flex;
     flex-wrap: wrap;
     column-gap: 30px;
     row-gap: 40px;
     align-items: center;
-}
-.productList {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+
 }

@@ -1,0 +1,132 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.breadCrumbs1 {
+  position: relative;
+  z-index: 3;
+
+  & li {
+    margin: 0 24px;
+    position: relative;
+    font-size: 18px;
+    line-height: 22px;
+    color: #becae2;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      color: #73849c;
+      pointer-events: none;
+    }
+    &:not(:last-child) {
+      &:after {
+        position: absolute;
+        content: "";
+        background-image: url("/img/arrowBreadCrumbs.png");
+        background-size: cover;
+        background-position: bottom;
+        top: 5px;
+        right: -33px;
+        pointer-events: none;
+        width: 14px;
+        height: 11px;
+      }
+    }
+    a {
+      transition: 0.3s;
+      border-bottom: 0 solid #fff;
+      &:hover {
+        border-bottom: 1px solid #668195;
+      }
+      &:active {
+        color: #606c63;
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+  &_white {
+    width: 1500px;
+    margin-top: 34px;
+    li {
+      color: #fff;
+      &:not(:last-child) {
+        &:after {
+          position: absolute;
+          content: "";
+          background-image: url("/img/arrowBreadCrumbsWhite.png");
+          background-size: cover;
+          background-position: bottom;
+          top: 5px;
+          right: -33px;
+          pointer-events: none;
+          width: 14px;
+          height: 11px;
+        }
+      }
+      &:last-child {
+        color: #fff;
+      }
+      a {
+        transition: 0.3s;
+        border-bottom: 0 solid red;
+        &:hover {
+          border-bottom: 1px solid #fff;
+        }
+        &:active {
+          color: #dee8e1;
+          border-bottom: 1px solid #dee8e1;
+        }
+      }
+    }
+  }
+  span {
+    pointer-events: none;
+    word-wrap: break-word;
+  }
+}
+.breadCrumbs {
+  
+}
+.list {
+  display: flex;
+  font-size: 14px;
+  line-height: 20px;
+  flex-wrap: wrap;
+  color: #868695;
+}
+.item {
+  display: flex;
+  flex-shrink: 0;
+  padding: 4px 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+  align-items: baseline;
+  margin-right: 8px;
+  
+  a {
+    font-size: 14px;
+    line-height: 20px;
+    border-bottom: 1px solid;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #868695;
+    
+    &:not(:last-child):hover {
+      color: #242424;
+      border-color: #242424;
+    }
+  }
+  
+  &:last-child{
+    border: none;
+    pointer-events: none;
+  }
+  &:not(:last-child):after {
+    content: "/";
+    color: #c8c8d1;
+    margin-left: 8px;
+  }
+}

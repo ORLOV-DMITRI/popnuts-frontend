@@ -1,0 +1,143 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+.quickView {
+    display: flex;
+    width: 800px;
+    height: 500px;
+    border-radius: 12px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    background-color: #f6f6f9;
+
+    width: 50%;
+   
+}
+.top {
+    padding: 20px 25px 0;
+}
+.body {
+    padding: 20px 20px 0;
+}
+.body {
+    max-height: 65%;
+    overflow: auto;
+    padding: 0px 35px 40px 25px;
+}
+.title {
+    color: #242424;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    transition: 0.3s;
+    margin-bottom: 5px;
+    display: block;
+    width: fit-content;
+    &:hover {
+        color: $primary;
+        text-decoration: underline;
+    }
+}
+.price {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+.priceDiscount {
+    color: $primary;
+    font-size: 22px;
+    line-height: 24px;
+    text-decoration: none;
+    font-weight: 700;
+}
+.priceFull {
+    font-size: 18px;
+    line-height: 20px;
+    color: #868695;
+}
+.description {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    color: #9d9da5;
+    font-weight: 400;
+}
+.img {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    img {
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+    }
+}
+.status {
+    margin-top: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #9d9da5;
+    font-weight: 400;
+}
+.info {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.dimensions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    
+    span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.favorites {
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    
+    svg {
+        transition: 0.3s;
+    }
+    &:hover svg {
+        stroke: $primary;
+    }
+}
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+.detailLink {
+    margin-top: auto;
+    text-decoration: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #242424;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 600;
+    padding: 20px 20px 22px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    z-index: 1;
+     transition: 0.3s;
+    &:hover {
+        color: $primary;
+    }
+}

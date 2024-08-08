@@ -1,17 +1,33 @@
+'use client'
 import styles from './Header.module.scss'
-import MenuIcon from '/public/svg/burger.svg'
 import FavoritesIcon from '/public/svg/favorites.svg'
 import BasketIcon from '/public/svg/basket.svg'
 import UserIcon from '/public/svg/user.svg'
 import Link from "next/link";
+import {getCategories} from "@/api/requests";
+import HeaderMenu from "@/components/HeaderMenu/HeaderMenu";
+import Modal from "@/components/ui/Modal/Modal";
+import {Category} from "@/types";
+import {useState} from "react";
+import cn from "classnames";
 
-export default function Header() {
+
+type Props = {
+    categories: Category[]
+}
+export default function Header({categories}:Props) {
+    const [isOpenMenu, setIsOpenMenu] = useState(false)
+    
+    const toggleMenu = () => {
+        setIsOpenMenu(prevState => !prevState)
+    }
     return (
-        <header className={styles.header}>
+        <header className={cn(styles.header, 'header')} style={{zIndex: isOpenMenu ? 1000 : 10}}>
             <div className="container">
                 <div className={styles.wrapper}>
                     <Link href={'/'} className={styles.logo}>popnuts</Link>
-                    <button className={styles.menu}>
+                    
+                    <button className={cn(styles.menu, isOpenMenu && styles.open)} onClick={toggleMenu}>
                         <span className={styles.menuLine}></span>
                     </button>
                     <div className={styles.search}>
@@ -33,6 +49,9 @@ export default function Header() {
                     </div>
                 </div>
             </div>
+            <Modal variant='menu' isOpen={isOpenMenu} onClose={() => setIsOpenMenu(false)} >
+                <HeaderMenu categories={categories} onClose={() => setIsOpenMenu(false)}/>
+            </Modal>
         </header>
     );
 }

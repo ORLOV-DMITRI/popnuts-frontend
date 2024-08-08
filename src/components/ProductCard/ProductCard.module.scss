@@ -12,9 +12,18 @@
 }
 .productCard {
     position: relative;
-    width: calc(16% - 16px);
+    width: 210px;
     
     border-radius: 12px;
+    
+    &:hover {
+        .showMore {
+            opacity: 1;
+        }
+        .productImgWrapper {
+            background-color: #acacac;
+        }
+    }
 }
 .wrapper {
     display: flex;
@@ -99,48 +108,7 @@
     font-size: 14px;
     font-weight: 500;
     z-index: 4;
-}
-.rating {
-    display: flex;
-    align-items: center;
-    gap: 3px;
-}
-.starIcon {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    svg {
-        width: 100%;
-        height: 100%;
-    }
-}
-.ratingStart {
-    display: flex;
-    align-items: stretch;
-    font-size: 14px;
-    line-height: 20px;
-    gap: 3px;
-}
-.ratingCount {
-    font-size: 15px;
-    line-height: 16px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
-    color: #9d9da5;
-    
-    &:before {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        border-radius: 50%;
-        width: 4px;
-        height: 4px;
-        background-color: #9d9da5;
-        margin: 0 4px 2px;
-    }
+    height: 18px;
 }
 
 
@@ -156,7 +124,34 @@
     overflow: hidden;
 }
 
-
+.top {
+    position: relative;
+}
+.showMore {
+    z-index: 5;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+    
+    font-size: 14px;
+    line-height: 20px;
+    color: #242424;
+    white-space: nowrap;
+    padding: 8px;
+    width: calc(100% - 16px);
+    height: 40px;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, .9);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    svg {
+        color: #fff;
+    }
+}
 
 .thermometerLine {
     background: linear-gradient(to right, hsl(346.8, 77.2%, 49.8%), hsl(340, 70%, 55%), hsl(350, 80%, 60%));
@@ -165,22 +160,23 @@
 .addBtn {
     z-index: 4;
     margin-top: 12px;
-    font-size: 14px;
-    line-height: 20px;
-    padding: 5px 24px 7px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    text-align: center;
-    font-weight: 600;
-    border-radius: 12px;
-    cursor: pointer;
-    color: #fff;
-    background-color: $primary;
-    border: 2px solid transparent;
-    transition: 0.3s ease;
-    &:hover {
-        filter: brightness(110%);
+
+}
+.favorites {
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+    
+    svg {
+        transition: 0.3s;
+    }
+    &:hover svg {
+        stroke: $primary;
     }
 }

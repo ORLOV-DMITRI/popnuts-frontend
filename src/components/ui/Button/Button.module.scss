@@ -1,0 +1,27 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+.btn {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px 24px 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    filter: brightness(110%);
+  }
+}
+
+.primary {
+  color: #fff;
+  background-color: $primary;
+  border: 2px solid transparent;
+}
