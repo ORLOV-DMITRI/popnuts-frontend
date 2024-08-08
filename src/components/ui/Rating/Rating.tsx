@@ -3,18 +3,19 @@ import Link from "next/link";
 import {Product} from "@/types";
 import Image from "next/image";
 import StarIcon from '/public/svg/star.svg'
+import cn from "classnames";
 
 type Props = {
-   rating: number
+    rating: number
     countReviews: number
+    variant?: 'small' | 'big'
 }
 
-export default function Rating({rating, countReviews}: Props) {
-    
+export default function Rating({rating, countReviews, variant = 'small'}: Props) {
     
     
     return (
-        <div className={styles.rating}>
+        <div className={cn(styles.rating, styles[variant])}>
             <div className={styles.ratingStart}>
                 <span className={styles.starIcon}><StarIcon/></span>
                 <span>{rating}</span>

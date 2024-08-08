@@ -2,8 +2,6 @@ import styles from './ProductQuickView.module.scss'
 import Link from "next/link";
 import {Product} from "@/types";
 import Image from "next/image";
-import StarIcon from '/public/svg/star.svg'
-import EyeIcon from '/public/svg/eye.svg'
 import Rating from "@/components/ui/Rating/Rating";
 import Button from "@/components/ui/Button/Button";
 import LikeIcon from '/public/svg/like.svg'
@@ -15,10 +13,8 @@ type Props = {
 export default function ProductQuickView({product}: Props) {
     const discountAmount = product.price * (product.discountPercentage / 100);
     const discountedPrice = product.price - discountAmount;
-
-    const maxStock = 100;
-    const stockPercentage = (product.stock / maxStock) * 100;
-
+    
+    console.log(product)
     return (
         <div className={styles.quickView}>
             <div className={styles.img}>
@@ -46,7 +42,7 @@ export default function ProductQuickView({product}: Props) {
                     <div className={styles.info}>
                         <div className={styles.dimensions}>
                        <span>
-                            weight 
+                            weight
                            <span>{product.weight}</span>
                        </span>
                             <span>

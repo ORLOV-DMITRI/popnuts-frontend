@@ -35,7 +35,8 @@ export default function useProductsQuery({products, queryKeys, apiCall}: Props) 
             }
         },
         getNextPageParam: (lastPage, allPages) => {
-            if (lastPage.products.length === 0) return undefined;
+            if(!lastPage?.products) return undefined
+            if (lastPage?.products.length === 0) return undefined;
             return allPages.length;
         },
         initialPageParam: 0,

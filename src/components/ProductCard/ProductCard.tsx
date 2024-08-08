@@ -7,6 +7,7 @@ import LikeIcon from '/public/svg/like.svg';
 import Rating from "@/components/ui/Rating/Rating";
 import Button from "@/components/ui/Button/Button";
 import cn from "classnames";
+import Thermometer from "@/components/ui/Thermometer/Thermometer";
 
 type Props = {
     product: Product;
@@ -55,23 +56,7 @@ const ProductCard = forwardRef<HTMLDivElement, Props>(({product, onOpenModal}, r
 
                     </div>
                     <Rating rating={product.rating} countReviews={product?.reviews?.length}/>
-                    <div className={styles.thermometerWrap}>
-                        {product.stock === 0 && (
-                            <div className={styles.thermometerText}>not available</div>
-                        )}
-                        {product.stock > maxStock && (
-                            <div className={styles.thermometerText}>in stock</div>
-                        )}
-                        {product.stock !== 0 && product.stock < maxStock && (
-                            <>
-                                <div className={styles.thermometerText}>{product.stock} pcs left</div>
-                                <div className={styles.thermometer}>
-                                    <div className={styles.thermometerLine}
-                                         style={{width: `${stockPercentage}%`}}></div>
-                                </div>
-                            </>
-                        )}
-                    </div>
+                    <Thermometer stock={product.stock}/>
                 </div>
                 <div className={styles.addBtn}>
                     <Button>Add to cart</Button>

@@ -1,0 +1,15 @@
+.thermometerText {
+    font-size: 12px;
+    margin-bottom: 3px;
+}
+
+.thermometer {
+    background: #d3d4dd;
+    border-radius: 5px;
+    height: 6px;
+    overflow: hidden;
+}
+.thermometerLine {
+    background: linear-gradient(to right, hsl(346.8, 77.2%, 49.8%), hsl(340, 70%, 55%), hsl(350, 80%, 60%));
+    height: 100%;
+}

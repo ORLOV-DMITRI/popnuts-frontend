@@ -29,6 +29,18 @@ export const getInitialALlProducts = async (): Promise<ProductsResponse> => {
         }
     }
 }
+export const getALlProducts = async (): Promise<ProductsResponse> => {
+    try {
+        const response = await apiClient.get(``);
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            throw new Error("Ошибка получения товаров, обновите страницу и попробуйте снова");
+        } else {
+            throw new Error("Произошла неожиданная ошибка, попробуйте снова");
+        }
+    }
+}
 export const getInitialCategoryProducts = async (categorySlug: string): Promise<ProductsResponse> => {
     try {
         const response = await apiClient.get(`category/${categorySlug}?limit=18`);

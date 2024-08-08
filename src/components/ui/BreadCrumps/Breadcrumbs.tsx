@@ -11,7 +11,7 @@ export default function Breadcrumbs({path, className}: Props) {
     let accumulatedPath = "";
     
     return (
-        <div className={cn(styles.breadCrumbs,className)}>
+        <div className={cn(styles.breadCrumbs)}>
             <ul className={styles.list}>
                 <li className={styles.item}>
                     <Link href="/" title="Home">

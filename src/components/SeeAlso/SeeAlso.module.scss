@@ -1,0 +1,11 @@
+
+.moreProduct {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+    h3 {
+        font-size: 30px;
+        font-weight: 500;
+    }
+}
