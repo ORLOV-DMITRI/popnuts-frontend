@@ -1,0 +1,27 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    padding-top: 100px;
+    align-items: center;
+    gap: 20px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 220px;
+    line-height: 100%;
+    opacity: .9;
+}
+.subtitle {
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 100%;
+    opacity: .9;
+}
+.goHome {
+    height: 50px;
+    font-size: 20px;
+}

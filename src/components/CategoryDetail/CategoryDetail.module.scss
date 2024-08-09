@@ -1,0 +1,23 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+.categoryDetail {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.title {
+  font-size: 28px;
+  line-height: 100%;
+  font-weight: 700;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  span {
+    font-size: 14px;
+    line-height: 20px;
+    color: #868695;
+    white-space: nowrap;
+    font-weight: 400;
+  }
+}

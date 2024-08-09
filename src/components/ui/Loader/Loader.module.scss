@@ -1,0 +1,36 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+
+
+.loader {
+  
+  border-radius: 40px;
+  color: $primary;
+  border: 2px solid black;
+  position: relative;
+}
+.big {
+  width: 220px;
+  height: 30px;
+}
+.small {
+  width: 150px;
+  height: 20px;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  margin: 2px;
+  width: 25%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  background: currentColor;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  50% {left:100%;transform: translateX(calc(-100% - 4px))}
+}

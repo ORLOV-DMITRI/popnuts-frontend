@@ -3,6 +3,7 @@ import {getInitialALlProducts} from "@/api/requests";
 import {getLimitProducts} from "@/api/server-actions";
 
 
+
 export default async function Home() {
     
     const products = await getInitialALlProducts();

@@ -1,13 +1,11 @@
-import {FC} from "react";
 import cn from "classnames";
 import styles from './BreadCrumps.module.scss'
 import Link from "next/link";
 
 type Props = {
     path: { link: string, label: string }[],
-    className?: string
 }
-export default function Breadcrumbs({path, className}: Props) {
+export default function Breadcrumbs({path}: Props) {
     let accumulatedPath = "";
     
     return (

@@ -1,7 +1,4 @@
 import styles from './Rating.module.scss'
-import Link from "next/link";
-import {Product} from "@/types";
-import Image from "next/image";
 import StarIcon from '/public/svg/star.svg'
 import cn from "classnames";
 

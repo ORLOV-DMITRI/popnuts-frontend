@@ -4,6 +4,10 @@
 .breadCrumbs {
     margin-bottom: 20px;
     width: 1500px;
+    
+    @include xl {
+        width: 1200px;
+    }
 }
 .list {
     display: flex;

@@ -1,31 +1,35 @@
+'use client'
 import styles from './ProductDetail.module.scss'
-import Link from "next/link";
-import {Product} from "@/types";
+import {TProduct} from "@/types";
 import Image from "next/image";
-import StarIcon from '/public/svg/star.svg'
-import EyeIcon from '/public/svg/eye.svg'
 import Rating from "@/components/ui/Rating/Rating";
 import Button from "@/components/ui/Button/Button";
 import LikeIcon from '/public/svg/like.svg'
-import React from "react";
+import React, {useState} from "react";
 import Thermometer from "@/components/ui/Thermometer/Thermometer";
 import AvatarImg from '/public/img/avatar.png'
+import LoaderImage from "@/components/ui/LoaderImage/LoaderImage";
 
 
 type Props = {
-    product: Product
+    product: TProduct
 }
 
 export default function ProductDetail({product}: Props) {
-    
+
     const discountAmount = product.price * (product.discountPercentage / 100);
     const discountedPrice = product.price - discountAmount;
-    
+
+    const [loadingImg, setLoadingImg] = useState(true)
+
+
     return (
         <div className={styles.productDetail}>
             <div className={styles.productDetailTop}>
                 <div className={styles.img}>
-                    <Image src={product.images[0]} alt={product.title} width={350} height={350} priority/>
+                    {loadingImg && <LoaderImage />}
+                    <Image src={product.images[0]} alt={product.title} width={350} height={350}
+                           onLoad={() => setLoadingImg(false)}/>
                 </div>
                 <div className={styles.content}>
                     <div className={styles.top}>
@@ -33,7 +37,7 @@ export default function ProductDetail({product}: Props) {
                             {product.title}
                         </h1>
                         <Rating variant={'big'} rating={product.rating} countReviews={product?.reviews?.length}/>
-                        
+
                         <div className={styles.status}>
                             {product.availabilityStatus}
                         </div>
@@ -75,7 +79,7 @@ export default function ProductDetail({product}: Props) {
                             </div>
                         </div>
                     </div>
-                
+
                 </div>
                 <div className={styles.aside}>
                     <div className={styles.price}>
@@ -108,7 +112,7 @@ export default function ProductDetail({product}: Props) {
                                         <span className={styles.reviewName}>{item.reviewerName}</span>
                                         <span className={styles.reviewEmail}>{item.reviewerEmail}</span>
                                     </div>
-                                
+
                                 </div>
                                 <div className={styles.comment}>
                                     {item.comment}

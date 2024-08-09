@@ -24,7 +24,7 @@
 .body {
     max-height: 65%;
     overflow: auto;
-    padding: 0px 35px 40px 25px;
+    padding: 0 35px 40px 25px;
 }
 .title {
     color: #242424;
@@ -66,6 +66,7 @@
     font-weight: 400;
 }
 .img {
+    position: relative;
     width: 50%;
     height: 100%;
     display: flex;
@@ -77,6 +78,12 @@
         height: 90%;
         object-fit: contain;
     }
+}
+.imgLoader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .status {
     margin-top: 5px;

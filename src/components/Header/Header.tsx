@@ -4,16 +4,15 @@ import FavoritesIcon from '/public/svg/favorites.svg'
 import BasketIcon from '/public/svg/basket.svg'
 import UserIcon from '/public/svg/user.svg'
 import Link from "next/link";
-import {getCategories} from "@/api/requests";
 import HeaderMenu from "@/components/HeaderMenu/HeaderMenu";
 import Modal from "@/components/ui/Modal/Modal";
-import {Category} from "@/types";
+import {TCategory} from "@/types";
 import {useState} from "react";
 import cn from "classnames";
 
 
 type Props = {
-    categories: Category[]
+    categories: TCategory[]
 }
 export default function Header({categories}:Props) {
     const [isOpenMenu, setIsOpenMenu] = useState(false)

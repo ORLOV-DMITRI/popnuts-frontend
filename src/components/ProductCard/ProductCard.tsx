@@ -1,16 +1,18 @@
-import React, {forwardRef} from 'react';
+'use client'
+import React, {forwardRef, useState} from 'react';
 import styles from './ProductCard.module.scss';
 import Link from "next/link";
-import {Product} from "@/types";
+import {TProduct} from "@/types";
 import Image from "next/image";
 import LikeIcon from '/public/svg/like.svg';
 import Rating from "@/components/ui/Rating/Rating";
 import Button from "@/components/ui/Button/Button";
 import cn from "classnames";
 import Thermometer from "@/components/ui/Thermometer/Thermometer";
+import LoaderImage from "@/components/ui/LoaderImage/LoaderImage";
 
 type Props = {
-    product: Product;
+    product: TProduct;
     onOpenModal?: () => void;
 };
 
@@ -18,17 +20,18 @@ const ProductCard = forwardRef<HTMLDivElement, Props>(({product, onOpenModal}, r
     const discountAmount = product.price * (product.discountPercentage / 100);
     const discountedPrice = product.price - discountAmount;
 
-    const maxStock = 100;
-    const stockPercentage = (product.stock / maxStock) * 100;
+    const [loadingImg, setLoadingImg] = useState(true)
+
 
     return (
         <article className={cn(styles.productCard, ref && 'Тут')} ref={ref}>
             <div className={styles.wrapper}>
-                <Link className={styles.productLink} href={`/category/${product.category}/${product.id}`}></Link>
+                <Link className={styles.productLink} href={`/${product.category}/${product.id}`}></Link>
                 <div className={styles.top}>
                     <div className={styles.productImgWrapper}>
+                        {loadingImg && <LoaderImage />}
                         <Image className={styles.productImg} src={product.thumbnail} alt={product.title} width={200}
-                               height={250}/>
+                               height={250}  onLoad={() => setLoadingImg(false)}/>
                     </div>
                     <button className={styles.showMore} onClick={onOpenModal}>
                         Quick view

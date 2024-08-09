@@ -1,24 +1,30 @@
 import styles from './ProductQuickView.module.scss'
 import Link from "next/link";
-import {Product} from "@/types";
+import {TProduct} from "@/types";
 import Image from "next/image";
 import Rating from "@/components/ui/Rating/Rating";
 import Button from "@/components/ui/Button/Button";
 import LikeIcon from '/public/svg/like.svg'
+import React, {useState} from "react";
+import LoaderImage from "@/components/ui/LoaderImage/LoaderImage";
 
 type Props = {
-    product: Product
+    product: TProduct
+    onClose: () => void
 }
 
-export default function ProductQuickView({product}: Props) {
+export default function ProductQuickView({product, onClose}: Props) {
     const discountAmount = product.price * (product.discountPercentage / 100);
     const discountedPrice = product.price - discountAmount;
-    
-    console.log(product)
+
+    const [loadingImg, setLoadingImg] = useState(true)
+
     return (
         <div className={styles.quickView}>
             <div className={styles.img}>
-                <Image src={product.thumbnail} alt={product.title} width={350} height={350} priority/>
+                {loadingImg && <LoaderImage/>}
+                <Image src={product.thumbnail} alt={product.title} width={350} height={350}
+                       onLoad={() => setLoadingImg(false)}/>
             </div>
             <div className={styles.content}>
                 <div className={styles.top}>
@@ -67,9 +73,11 @@ export default function ProductQuickView({product}: Props) {
                         <button className={styles.favorites}><LikeIcon/></button>
                     </div>
                 </div>
-                <Link href={'#'} className={styles.detailLink}>More information product</Link>
+                <Link href={`/${product.category}/${product.id}`} className={styles.detailLink} onClick={onClose}>
+                    More information product
+                </Link>
             </div>
-       
+
         </div>
     );
 }

@@ -13,11 +13,15 @@
 }
 .menu {
     position: fixed;
-    top: calc(0px + 92px);
+    top: 92px;
     left: 0;
     background-color: #fff;
     z-index: 1000;
     overflow: hidden;
+    
+    @include xl {
+        top: 76px;
+    }
 }
 .icon {
     width: 25px;
