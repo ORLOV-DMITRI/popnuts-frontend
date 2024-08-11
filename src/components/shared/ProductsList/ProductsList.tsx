@@ -61,20 +61,24 @@ export default function ProductsList({apiCall, queryKeys, products, categorySlug
     const handleAddFavorites = (product: TProduct | null) => {
         if (!user) {
             router.push('/login')
+        }else {
+            if (product) {
+                const favoriteProduct = convertProductFavorite(product);
+                addFavorites(favoriteProduct)
+            }
         }
-        if (product) {
-            const favoriteProduct = convertProductFavorite(product);
-            addFavorites(favoriteProduct)
-        }
+       
     }
     const handleAddBasket = (product: TProduct | null) => {
         if (!user) {
             router.push('/login')
+        }else  {
+            if (product) {
+                const basketProducts = convertProductFavorite(product);
+                addBasket(basketProducts)
+            }
         }
-        if (product) {
-            const basketProducts = convertProductFavorite(product);
-            addBasket(basketProducts)
-        }
+        
     }
     
     return (
