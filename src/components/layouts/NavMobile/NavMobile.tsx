@@ -26,7 +26,7 @@ export default function NavMobile({categories, user}:Props) {
         setIsOpenMenu(prevState => !prevState)
     }
     const closeMenu = () => {
-        setIsOpenMenu(prevState => !prevState)
+        setIsOpenMenu(false)
     }
     const {data: userData} = useUserQuery(user)
     const {data: favoriteProducts} = useFavoritesQuery()
