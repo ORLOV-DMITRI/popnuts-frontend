@@ -40,7 +40,6 @@
         height: 30px;
         bottom: 70px;
         right: 10px;
-    
     }
 }
 
@@ -49,3 +48,12 @@
     visibility: visible;
 }
 
+.scrollToTop.main {
+    
+    @include md {
+        bottom: 200px
+    }
+    @include xs {
+        bottom: 170px;
+    }
+}

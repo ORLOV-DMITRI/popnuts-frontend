@@ -3,7 +3,11 @@ import styles from './ScrollToTopButton.module.scss'
 import {useEffect, useState} from "react";
 import cn from "classnames";
 import ArrowIcon from '/public/svg/arrow.svg'
-export default function ScrollToTopButton() {
+
+type TProps = {
+    isMainPage: boolean
+}
+export default function ScrollToTopButton({isMainPage}: TProps) {
     const [isVisible, setIsVisible] = useState(false);
     
     useEffect(() => {
@@ -28,7 +32,7 @@ export default function ScrollToTopButton() {
     
     return (
         <button
-            className={cn(styles.scrollToTop,isVisible && styles.show )}
+            className={cn(styles.scrollToTop,isVisible && styles.show, isMainPage && styles.main )}
             onClick={scrollToTop}
         >
             <ArrowIcon/>

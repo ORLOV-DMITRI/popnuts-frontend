@@ -24,8 +24,9 @@ type Props = {
     categorySlug?: string
     sortData?: TSortItem | null
     filterData?: TFilterItem | null
+    isMainPage: boolean
 }
-export default function ProductsList({apiCall, queryKeys, products, categorySlug, sortData, filterData}: Props) {
+export default function ProductsList({apiCall, queryKeys, products, categorySlug, sortData, filterData, isMainPage}: Props) {
     const {data, isFetchingNextPage, ref: targetRef} = useProductsQuery({
         products,
         queryKeys,
@@ -84,7 +85,7 @@ export default function ProductsList({apiCall, queryKeys, products, categorySlug
     return (
         <>
             <div className={styles.productList}>
-                <ScrollToTopButton/>
+                <ScrollToTopButton isMainPage={isMainPage}/>
                 {data?.pages?.map((page, pageIndex) => (
                     <div key={pageIndex} className={styles.products}>
                         {page?.products
