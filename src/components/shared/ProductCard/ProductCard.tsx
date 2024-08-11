@@ -1,5 +1,5 @@
 'use client'
-import React, {forwardRef, useState} from 'react';
+import React, {forwardRef, useEffect, useState} from 'react';
 import styles from './ProductCard.module.scss';
 import Link from "next/link";
 import {TProduct} from "@/types";
@@ -26,7 +26,13 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(({product, onOpenModal, o
 
     const [loadingImg, setLoadingImg] = useState(true)
     
-
+    const [clientIsFavorite, setClientIsFavorite] = useState(isFavorite);
+    const [clientIsBasket, setClientIsBasket] = useState(isBasket);
+    
+    useEffect(() => {
+        setClientIsFavorite(isFavorite);
+        setClientIsBasket(isBasket);
+    }, [isFavorite, isBasket]);
     
     return (
         <article className={cn(styles.productCard)} ref={ref}>
@@ -41,7 +47,7 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(({product, onOpenModal, o
                     <button className={styles.showMore} onClick={onOpenModal}>
                         Quick view
                     </button>
-                    <button className={cn(styles.favorites, isFavorite && styles.active)} onClick={onAddFavorites}>
+                    <button className={cn(styles.favorites, clientIsFavorite && styles.active)} onClick={onAddFavorites}>
                         <LikeIcon/>
                     </button>
                 </div>
@@ -72,7 +78,7 @@ const ProductCard = forwardRef<HTMLDivElement, TProps>(({product, onOpenModal, o
                     </div>
                 )}
                 {product.stock > 0 && (
-                    isBasket ? (
+                    clientIsBasket ? (
                         <div className={styles.addBtn}>
                             <Button variant={'secondary'}>
                                 <Link href={'/lk/basket'}>
