@@ -1,13 +1,14 @@
 import axios, {CreateAxiosDefaults} from "axios";
+import Cookies from 'js-cookie';
 
-
-const config: CreateAxiosDefaults  = {baseURL: 'https://dummyjson.com/products/'};
+export const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+const config: CreateAxiosDefaults  = {baseURL: baseUrl};
 
 export const apiClient = axios.create(config);
 
 
 apiClient.interceptors.request.use((config) => {
-    const token = ''; // Или получите токен из другого источника
+    const token = Cookies.get('token')
     if (token) {
         config.headers['Authorization'] = `Bearer ${token}`;
     }

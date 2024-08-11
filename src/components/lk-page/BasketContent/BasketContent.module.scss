@@ -1,0 +1,189 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+
+
+
+
+
+.title {
+    font-size: 28px;
+    line-height: 100%;
+    font-weight: 700;
+    display: flex;
+    align-items: flex-end;
+    gap: 5px;
+    span {
+        font-size: 14px;
+        line-height: 20px;
+        color: #868695;
+        white-space: nowrap;
+        font-weight: 400;
+    }
+}
+.basketList {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.basket {
+    margin-top: 20px;
+    display: flex;
+}
+.basketContent {
+    height: max-content;
+    width: 1000px;
+    margin-right: 40px;
+    border: 1px solid transparent;
+    padding: 24px;
+    border-radius: 20px;
+    background-color: #fff;
+    
+    @include xl {
+        width: 800px;
+    }
+}
+.basketAside {
+    height: max-content;
+    width: 360px;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 22px;
+    color: #868695;
+    border: 1px solid transparent;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: none;
+    background-color: #fff;
+}
+.text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #242424;
+    transition: 0.3s;
+    &:hover {
+        text-decoration: underline;
+        color: $primary;
+    }
+}
+.paymentToggle {
+    margin-top: 12px;
+    display: flex;
+    user-select: none;
+}
+.paymentItem {
+    display: block;
+    width: 50%;
+    background: #f1f1f5;
+    
+    &:first-child {
+        padding: 2px 0 2px 2px;
+        border-radius: 10px 0 0 10px;
+    }
+    &:last-child {
+        padding: 2px 2px 2px 0;
+        border-radius: 0 10px 10px 0;
+    }
+    
+    button {
+        font-size: 14px;
+        line-height: 20px;
+        padding: 8px 4px;
+        color: #242424;
+        font-weight: 600;
+        text-align: center;
+        white-space: nowrap;
+        display: block;
+        width: 100%;
+        border-radius: 8px;
+    }
+}
+.paymentItem.active {
+    
+    & button {
+        background-color: #fff;
+    }
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+}
+.infoItem {
+    display: flex;
+    justify-content: space-between;
+}
+.total {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #242424;
+    display: flex;
+    justify-content: space-between;
+}
+.wallet {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.basketLoader {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    height: 100%;
+    background-color: rgba(47, 58, 101, 0.88);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.payError {
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: red;
+}
+.noProducts {
+    gap: 20px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 20px;
+    a {
+        font-weight: 700;
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+.successPay {
+    padding: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    
+    a {
+        width: 100%;
+        height: 100%;
+    }
+    div {
+        font-size: 30px;
+        font-weight: 500;
+    }
+}
+

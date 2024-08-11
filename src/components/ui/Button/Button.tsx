@@ -4,7 +4,7 @@ import cn from "classnames";
 
 type Props = {
   className?: string,
-  variant?: 'primary'
+  variant?: 'primary' | 'disabled' | 'secondary'
 } & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 export default function Button({className, variant = 'primary', ...props}: Props) {

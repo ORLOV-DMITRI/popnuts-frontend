@@ -1,12 +1,9 @@
 import {getProductDetail} from "@/api/requests";
-import ProductDetail from "@/components/ProductDetail/ProductDetail";
+import ProductDetail from "@/components/detail-page/ProductDetail/ProductDetail";
 import {notFound} from "next/navigation";
 import Breadcrumbs from "@/components/ui/BreadCrumps/Breadcrumbs";
 import React from "react";
-import SeeAlso from "@/components/SeeAlso/SeeAlso";
-import {TProductsResponse} from "@/types";
-
-export const revalidate = 60;
+import SeeAlso from "@/components/shared/SeeAlso/SeeAlso";
 
 
 
@@ -41,14 +38,4 @@ export default async function ProductDetailPage({params}: { params: { productId:
         return notFound()
     }
 
-}
-
-export async function generateStaticParams() {
-    const data = await fetch(`https://dummyjson.com/products`)
-
-    const products: TProductsResponse = await data.json()
-
-    return products.products.map(item => ({
-        productId: item.id.toString()
-    }))
 }

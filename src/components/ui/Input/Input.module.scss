@@ -1,0 +1,49 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
+
+.field {
+    -webkit-user-drag: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    position: relative;
+    
+    label {
+        color: #242424;
+        font-weight: 500;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+    
+}
+
+.input {
+    width: 100%;
+    border: 1px solid $primary;
+    color: #242424;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 390px;
+    height: 2.5rem;
+    transition: 0.3s;
+    &:focus-visible {
+        border: 1px solid #242424;
+    }
+    &::placeholder {
+        color:rgb(161, 161, 170);
+        opacity: 0.8;
+    }
+}
+
+.error {
+    bottom: -13px;
+    position: absolute;
+    color: #dd3434;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 120%;
+}

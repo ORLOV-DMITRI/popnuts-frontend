@@ -1,4 +1,20 @@
-
+export type TSearchProduct = {
+    id: number;
+    title: string;
+    category: string;
+}
+export type TCustomProduct = {
+    productId: number;
+    category: string;
+    title: string;
+    price: number;
+    discountPercentage: number;
+    rating: number;
+    brand: string;
+    stock: number;
+    thumbnail: string;
+    count: number
+}
 
 export type TProduct = {
     id: number;
@@ -50,6 +66,25 @@ export type TSortItem = {
     value: TSort
 }
 export type TFilterItem = {
-    field: keyof TProduct; 
-    value: string 
+    field: keyof TProduct;
+    value: string
+}
+
+export type TUser = {
+    id: string
+    email: string
+    token: string
+}
+export type TNewUser = {
+    password: string
+    email: string
+}
+export type TWallet = { walletUSD: number, walletCoin: number, preferredCurrency: string }
+
+export type TOrder = {
+    id: number
+    createdAt: Date
+    totalPrice: number,
+    currency: string,
+    items: TCustomProduct[]
 }

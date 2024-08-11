@@ -1,7 +1,7 @@
 import {findCategoryName, getInitialCategoryProducts} from "@/api/requests";
 import {notFound} from "next/navigation";
 import Breadcrumbs from "@/components/ui/BreadCrumps/Breadcrumbs";
-import CategoryDetail from "@/components/CategoryDetail/CategoryDetail";
+import CategoryDetail from "@/components/category-page/CategoryDetail/CategoryDetail";
 
 export const revalidate = 60;
 
@@ -31,7 +31,7 @@ export default async function CategoryPage({params}: { params: { categorySlug: s
         
         return (
             <div>
-                <Breadcrumbs path={[{link: '#', label: params.categorySlug}]}/>
+                <Breadcrumbs path={[{link: '#', label: category.name}]}/>
                 <CategoryDetail products={products} category={category}/>
             </div>
         );

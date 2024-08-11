@@ -1,7 +1,7 @@
-import {TCategory, TProduct, TProductsResponse} from "@/types";
+import {TCategory, TProduct, TProductsResponse, TSearchProduct, TUser} from "@/types";
 
 
-export const getCategories = async () : Promise<TCategory[]> => {
+export const getCategories = async (): Promise<TCategory[]> => {
     try {
         const response = await fetch('https://dummyjson.com/products/categories');
         return response.json();
@@ -40,3 +40,14 @@ export const findCategoryName = async (categorySlug: string): Promise<TCategory 
     const categories = await getCategories();
     return categories.find(item => item.slug === categorySlug)
 }
+
+export const searchProducts = async (query: string): Promise<TSearchProduct[]> => {
+    try {
+        const response = await fetch(`https://dummyjson.com/products/search?q=${query}`);
+        const data = await response.json();
+        return data.products;
+    } catch (error) {
+        throw new Error('searchProducts. Network response was not ok' + error);
+    }
+}
+

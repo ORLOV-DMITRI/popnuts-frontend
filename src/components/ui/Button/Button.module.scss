@@ -25,3 +25,13 @@
   background-color: $primary;
   border: 2px solid transparent;
 }
+.disabled {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    border: 2px solid $primary;
+    pointer-events: none;
+}
+.secondary {
+    background-color: #fff;
+    border: 2px solid $primary;
+    color: #242424;
+}

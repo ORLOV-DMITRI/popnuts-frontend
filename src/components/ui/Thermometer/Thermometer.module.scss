@@ -1,3 +1,9 @@
+.thermometerWrap {
+    height: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .thermometerText {
     font-size: 12px;
     margin-bottom: 3px;

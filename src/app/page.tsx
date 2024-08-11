@@ -1,4 +1,4 @@
-import ProductsList from "@/components/ProductsList/ProductsList";
+import ProductsList from "@/components/shared/ProductsList/ProductsList";
 import {getInitialALlProducts} from "@/api/requests";
 import {getLimitProducts} from "@/api/server-actions";
 

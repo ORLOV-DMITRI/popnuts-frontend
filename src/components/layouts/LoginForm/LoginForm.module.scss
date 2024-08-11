@@ -1,0 +1,33 @@
+
+
+.auth {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 24px;
+    color: #242424;
+    font-weight: 500;
+}
+
+
+.form {
+    width: 100%;
+    margin-top: 24px;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+}
+.btn {
+    margin-top: 20px;
+}
+.error {
+    font-size: 14px;
+    background-color: #9d9da5;
+    border-radius: 12px;
+    padding:5px 10px;
+    text-align: center;
+}

@@ -5,7 +5,7 @@ import {useEffect} from "react";
 import {useInfiniteQuery} from "@tanstack/react-query";
 import {queryClient} from "@/settings/react-query/query-client";
 
-type Props = {
+type TProps = {
     categorySlug?: string
     apiCall: (pageParam: number, categorySlug?: string, sortData?: TSortItem) => Promise<TProductsResponse>;
     queryKeys: string[];
@@ -14,7 +14,7 @@ type Props = {
 
 }
 
-export default function useProductsQuery({products, queryKeys, apiCall, categorySlug, sortData}: Props) {
+export default function useProductsQuery({products, queryKeys, apiCall, categorySlug, sortData}: TProps) {
     const {ref, inView} = useInView();
 
     const formattedInitialData = {
@@ -57,10 +57,6 @@ export default function useProductsQuery({products, queryKeys, apiCall, category
         initialPageParam: 0,
         initialData: formattedInitialData
     });
-
-    useEffect(() => {
-        console.log(isFetching)
-    }, [isFetching])
     useEffect(() => {
         if (inView && hasNextPage) {
             fetchNextPage();
