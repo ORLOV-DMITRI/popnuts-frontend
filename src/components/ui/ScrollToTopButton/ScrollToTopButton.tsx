@@ -5,7 +5,7 @@ import cn from "classnames";
 import ArrowIcon from '/public/svg/arrow.svg'
 
 type TProps = {
-    isMainPage: boolean
+    isMainPage?: boolean
 }
 export default function ScrollToTopButton({isMainPage}: TProps) {
     const [isVisible, setIsVisible] = useState(false);

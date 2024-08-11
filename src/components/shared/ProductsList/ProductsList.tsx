@@ -24,7 +24,7 @@ type Props = {
     categorySlug?: string
     sortData?: TSortItem | null
     filterData?: TFilterItem | null
-    isMainPage: boolean
+    isMainPage?: boolean
 }
 export default function ProductsList({apiCall, queryKeys, products, categorySlug, sortData, filterData, isMainPage}: Props) {
     const {data, isFetchingNextPage, ref: targetRef} = useProductsQuery({
