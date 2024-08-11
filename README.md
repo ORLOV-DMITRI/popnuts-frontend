@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# POPNUTS
 
-## Getting Started
+## О проекте
 
-First, run the development server:
+**POPNUTS** — это маркетплейс, разработанный с использованием современных технологий для создания удобного и интуитивного пользовательского опыта. Проект предоставляет пользователям возможность легко находить и приобретать товары, а также управлять своими заказами и предпочтениями.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Технологии
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js**
+- **TypeScript** 
+- **Axios** 
+- **Formik** 
+- **Express.js** 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Функциональность
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Бесконечная загрузка товаров:** Пользователи могут просматривать список товаров без необходимости перезагрузки страницы, благодаря реализации бесконечной прокрутки. Это обеспечивает плавный и удобный просмотр ассортимента.
 
-## Learn More
+- **Быстрый просмотр и детальная страница товара:** Пользователи могут получить быстрый доступ к основным характеристикам товара прямо со страницы каталога или перейти на детальную страницу для более подробной информации.
 
-To learn more about Next.js, take a look at the following resources:
+- **Добавление в избранное и корзину:** Зарегистрированные пользователи могут сохранять товары в избранное для быстрого доступа в будущем, а также добавлять их в корзину для дальнейшей покупки.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Вход в аккаунт:** Поддерживается функционал авторизации, позволяющий пользователям входить в личный кабинет, управлять своими данными и отслеживать историю заказов.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- **Поиск:** Встроенный поисковой функционал помогает быстро находить нужные товары по ключевым словам или фразам.
 
-## Deploy on Vercel
+- **Меню с категориями:** Навигация по каталогу упрощена благодаря меню с категориями, которое позволяет пользователям быстро находить товары нужного типа.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Фильтры и сортировка в категориях:** Пользователи могут сортировать товары по различным критериям.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Личный кабинет:** Личный кабинет предоставляет пользователям возможность просматривать историю заказов, а также управлять избранными товарами.
+
+- **Оформление заказа и история заказов:** Пользователи могут легко оформить заказ, выбрав товары из корзины и указав необходимую информацию для доставки. В личном кабинете доступен список всех ранее оформленных заказов с детализацией.
+
+- **Покупка валюты:**
+
+**POPNUTS** — это современный и функциональный маркетплейс, который ставит в приоритет удобство и удовлетворенность пользователя, предоставляя богатый функционал и интуитивно понятный интерфейс.
