@@ -137,7 +137,11 @@ export default function BasketContent() {
                         </>
                     )
                     :
-                    (<Button onClick={handleCheckOrder} variant={basketProducts?.length === 0 ? 'primary' : 'disabled'}>Order</Button>)
+                    (
+                        basketProducts?.length > 0 && (
+                            <Button onClick={handleCheckOrder}>Order</Button>
+                        )
+                    )
                 }
             
             </div>
