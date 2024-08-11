@@ -5,6 +5,7 @@ import Header from "@/components/layouts/Header/Header";
 import {QueryProvider} from "@/settings/react-query/QueryProvider";
 import {getCategories} from "@/api/requests";
 import hasUser from "@/api/user/hasUser";
+import NavMobile from "@/components/layouts/NavMobile/NavMobile";
 
 
 const inter = Inter({subsets: ["latin"]});
@@ -48,6 +49,7 @@ export default async function RootLayout({
                     {children}
                 </div>
             </main>
+            <NavMobile categories={categories} user={user}/>
         </QueryProvider>
         </body>
         </html>

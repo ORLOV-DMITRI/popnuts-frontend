@@ -10,6 +10,10 @@
     z-index: 1000;
     border-radius: 12px;
     overflow: hidden;
+    
+    @include  xs{
+        width: 90%;
+    }
 }
 .menu {
     position: fixed;
@@ -21,6 +25,10 @@
     
     @include xl {
         top: 76px;
+    }
+    @include md {
+        top: 0;
+        width: 100%;
     }
 }
 .icon {

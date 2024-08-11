@@ -1,18 +1,55 @@
 @import "@/styles/_variables";
 @import "@/styles/_mixins.scss";
 
+.mobileInfo {
+    display: none;
+    
+    @include lg {
+        display: block;
+        
+    }
+    @include md {
+        width: 100%;
+        position: fixed;
+        bottom: 52px;
+        left: 0;
+        background: #fff;
+        padding: 10px 18px 12px;
+        z-index: 98;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    
+    @include xs {
+        padding: 5px 18px 12px;
+    }
+}
 .productDetail {
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
+    
+    @include lg {
+    
+    }
 }
 .productDetailTop {
     display: flex;
+    @include md {
+        flex-direction: column;
+    }
 }
 .content {
     display: flex;
     flex-direction: column;
     width: 40%;
+    @include lg {
+        width: 50%;
+    }
+    @include md {
+        width: 100%;
+    }
 }
 .brand {
     margin: 0 25px;
@@ -22,12 +59,16 @@
 }
 .top {
     padding: 20px 25px 0;
-}
-.body {
-    padding: 20px 20px 0;
+    
+    @include xs {
+        padding: 0;
+    }
 }
 .body {
     padding: 0 35px 40px 25px;
+    @include xs {
+        padding: 0;
+    }
 }
 .title {
     color: #242424;
@@ -38,6 +79,10 @@
     margin-bottom: 15px;
     display: block;
     width: fit-content;
+    
+    @include xs {
+        font-size: 25px;
+    }
 }
 .price {
     display: flex;
@@ -51,18 +96,32 @@
     line-height: 30px;
     text-decoration: none;
     font-weight: 700;
+    
+    @include xs {
+        font-size: 22px;
+    }
 }
 .priceFull {
     font-size: 20px;
     line-height: 20px;
     color: #868695;
+    
+    @include xs {
+        font-size: 16px;
+    }
 }
+
 .description {
     margin-top: 20px;
     font-size: 22px;
     line-height: 30px;
     color: #242424;
     font-weight: 400;
+    
+    @include xs {
+        font-size: 16px;
+        line-height: 120%;
+    }
 }
 .img {
     position: relative;
@@ -78,6 +137,9 @@
         max-height: 500px   ;
         object-fit: contain;
     }
+    @include md {
+        width: 100%;
+    }
 }
 .imgLoader {
     position: absolute;
@@ -91,6 +153,11 @@
     font-size: 20px;
     line-height: 20px;
     font-weight: 400;
+    
+    @include xs {
+        font-size: 16px;
+        margin-top: 10px;
+    }
 }
 .info {
     margin-top: 10px;
@@ -153,6 +220,9 @@
         width: 100%;
         height: 100%;
     }
+    @include xs {
+        margin-top: 5px;
+    }
 }
 .detailLink {
     margin-top: auto;
@@ -180,6 +250,10 @@
     box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
     height: max-content;
     background-color: #fff;
+    
+    @include lg {
+        display: none;
+    }
 }
 .thermometerWrap {
     margin-top: 20px;
@@ -208,11 +282,28 @@
         font-size: 30px;
         font-weight: 500;
     }
+    
+   @include xs {
+       margin-top: 25px;
+       gap: 10px;
+       h3 {
+           font-size: 22px;
+           font-weight: 500;
+       }
+   }
 }
 .reviewsList {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
+    
+    @include md {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    @include xs {
+        gap: 15px;
+    }
 }
 .reviewsItem {
     display: flex;
@@ -225,6 +316,13 @@
     
     img {
         flex: none;
+    }
+    @include md {
+        width: 100%;
+    }
+    @include xs {
+        padding: 12px 12px 10px;
+        height: 180px;
     }
 }
 .reviewsTop {

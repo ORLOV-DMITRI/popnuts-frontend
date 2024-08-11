@@ -1,9 +1,19 @@
-
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
 .paymentContent {
-    margin-top: 20px;
     border: 1px solid transparent;
     padding: 24px;
     border-radius: 20px;
     box-shadow: none;
     background-color: #fff;
+    width: max-content;
+    margin: 20px auto 0 auto;
+    
+    @include xs {
+        width: 100%;
+        padding: 0;
+        border-radius: 12px;
+        margin: 20px 0 0 0;
+    
+    }
 }

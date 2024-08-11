@@ -24,6 +24,13 @@
             background-color: #acacac;
         }
     }
+    
+    @include xl {
+        width: 220px;
+    }
+    @include xs {
+        width: calc(50% - 5px);
+    }
 }
 .wrapper {
     display: flex;
@@ -150,6 +157,10 @@
     margin-bottom: 8px;
     svg {
         color: #fff;
+    }
+    
+    @include md {
+        display: none;
     }
 }
 

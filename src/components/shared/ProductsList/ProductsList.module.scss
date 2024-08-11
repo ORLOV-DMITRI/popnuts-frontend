@@ -10,6 +10,15 @@
     column-gap: 30px;
     row-gap: 40px;
     align-items: center;
+    
+    @include xl {
+        justify-content: center;
+    }
+    @include xs {
+        margin-top: 20px;
+        row-gap: 24px;
+        column-gap: 8px;
+    }
 
 }
 .productLoaderContainer {

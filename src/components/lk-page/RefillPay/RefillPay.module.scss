@@ -1,3 +1,5 @@
+@import "@/styles/_variables";
+@import "@/styles/_mixins.scss";
 
 .refill {
     width: 500px;
@@ -5,10 +7,24 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    
+    @include xs {
+        width: 100%;
+        padding: 10px;
+    }
 }
 .title {
     font-size: 24px;
     font-weight: 700;
+    text-align: center;
+    @include xs {
+        font-size: 20px;
+    }
+}
+.wallet {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 .text {
     text-align: center;

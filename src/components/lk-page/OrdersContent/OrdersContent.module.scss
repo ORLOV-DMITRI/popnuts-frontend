@@ -15,14 +15,21 @@
         white-space: nowrap;
         font-weight: 400;
     }
+    
+    @include xs {
+        font-size: 22px;
+        span {
+            font-size: 12px;
+        }
+    }
 }
 .ordersContent {
-    width: 1500px;
+    width: 100%;
     border: 1px solid transparent;
     padding: 24px;
-    
-    @include xl {
-        width: 1200px;
+    @include xs {
+        margin-top: 10px;
+        padding: 0;
     }
 }
 .ordersList {
@@ -30,6 +37,10 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
+    @include xs {
+        margin-top: 10px;
+        gap: 20px;
+    }
 }
 .noProducts {
     gap: 20px;

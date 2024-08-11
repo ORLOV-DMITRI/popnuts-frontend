@@ -26,23 +26,40 @@
     display: flex;
     flex-direction: column;
     gap: 30px;
+    @include xs {
+        margin-top: 20px;
+        gap: 40px;
+    }
 }
 .basket {
     margin-top: 20px;
     display: flex;
+    
+    @include md {
+        flex-direction: column;
+        gap: 20px;
+    }
 }
 .basketContent {
     height: max-content;
-    width: 1000px;
     margin-right: 40px;
     border: 1px solid transparent;
     padding: 24px;
     border-radius: 20px;
     background-color: #fff;
+    width: 100%;
     
-    @include xl {
-        width: 800px;
+    @include lg {
+        margin-right: 5px;
     }
+    @include md {
+        margin-right: 0;
+    }
+    @include xs {
+        padding: 12px;
+        border-radius: 10px;
+    }
+ 
 }
 .basketAside {
     height: max-content;
@@ -58,6 +75,10 @@
     border-radius: 20px;
     box-shadow: none;
     background-color: #fff;
+    
+    @include md {
+        width: 100%;
+    }
 }
 .text {
     font-size: 16px;
@@ -184,6 +205,14 @@
     div {
         font-size: 30px;
         font-weight: 500;
+    }
+    
+    @include xs {
+        width: 100%;
+        div {
+            font-size: 20px;
+            font-weight: 500;
+        }
     }
 }
 

@@ -105,6 +105,36 @@ export default function ProductDetail({product}: Props) {
                         <div className={styles.description}>
                             {product.description}
                         </div>
+                        <div className={styles.mobileInfo}>
+                            <div className={styles.price}>
+                                <ins className={styles.priceDiscount}>
+                                    {discountedPrice.toFixed(2)}$
+                                </ins>
+                                <del className={styles.priceFull}>
+                                    {product.price.toFixed(2)}
+                                </del>
+                            </div>
+                            <div className={styles.actions}>
+                                {product.stock === 0 && (
+                                    <Button variant={'disabled'}>Not available</Button>
+                                )}
+                                {product.stock > 0 && (
+                                    isBasket ?
+                                        (
+                                            <Button variant={'secondary'}>
+                                                <Link href={'/lk/basket'}>In cart</Link>
+                                            </Button>
+                                        ) :
+                                        (
+                                            <Button onClick={handleAddBasket}>Add to cart</Button>
+                                        )
+        
+                                )}
+        
+                                <button className={cn(styles.favorites, isFavorite && styles.active)}
+                                        onClick={handleAddFavorites}><LikeIcon/></button>
+                            </div>
+                        </div>
                         <div className={styles.subInfo}>
                             <div className={styles.subInfoItem}>
                                 {product.returnPolicy}

@@ -23,6 +23,7 @@
     justify-content: space-between;
 }
 .navItem {
+    position: relative;
     padding: 12px 0;
     width: 20%;
     display: flex;
@@ -34,11 +35,29 @@
         color: #D3D4DD;
         fill: #D3D4DD;
         transition: 0.3s;
-        
-        &:hover {
-            color: $primary;
-            fill: $primary;
-
-        }
+    }
+}
+.navItem.active svg {
+    color: $primary;
+    fill: $primary;
+}
+.counter {
+    font-size: 10px;
+    line-height: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    display: inline-block;
+    min-width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 10px;
+    right: 30%;
+    background: $primary;
+    padding: 2px 3px 1px;
+    border-radius: 16px;
+    @include xs {
+        right: 18%;
     }
 }

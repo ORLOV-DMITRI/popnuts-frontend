@@ -3,6 +3,10 @@
 
 .menu {
     height: 100vh;
+    
+    @include md {
+        height: calc(100vh - 50px);
+    }
 }
 .menuList {
   padding: 20px;
@@ -26,4 +30,8 @@
   padding: 20px;
   font-size: 25px;
   font-weight: 500;
+    
+    @include xs {
+    
+    }
 }

@@ -3,6 +3,10 @@
 
 .banner {
   height: 200px;
+    
+    @include lg-xl {
+        display: none;
+    }
 }
 .slider {
   height: 100%;
