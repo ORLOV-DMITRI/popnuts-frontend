@@ -4,6 +4,13 @@
 .filterItem {
   position: relative;
   width: max-content;
+    
+    @include xs {
+        &:last-child .filterContent{
+                left: auto;
+            right: 0;
+        }
+    }
 }
 .filterBtn {
   font-size: 14px;
@@ -18,6 +25,12 @@
   box-shadow: 0 2px 16px rgba(0, 0, 0, .08);
   position: relative;
   height: 100%;
+    
+    @include xs {
+        padding: 5px 14px 7px 12px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
 }
 .filterContent {
   display: none;
@@ -32,6 +45,10 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, .1);
   background: #fff;
   z-index: 10;
+    @include xs {
+        border-radius: 5px;
+        padding: 8px;
+    }
 }
 .filterValue {
   font-size: 16px;
@@ -43,6 +60,11 @@
   &:hover {
     color: $primary;
   }
+    
+    @include xs {
+        font-size: 12px;
+        padding: 2px 5px;
+    }
 }
 .filterValue.active {
   color: $primary;

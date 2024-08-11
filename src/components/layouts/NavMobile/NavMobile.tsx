@@ -25,6 +25,9 @@ export default function NavMobile({categories, user}:Props) {
     const toggleMenu = () => {
         setIsOpenMenu(prevState => !prevState)
     }
+    const closeMenu = () => {
+        setIsOpenMenu(prevState => !prevState)
+    }
     const {data: userData} = useUserQuery(user)
     const {data: favoriteProducts} = useFavoritesQuery()
     const {data: basketProducts} = useBasketQuery()
@@ -33,25 +36,25 @@ export default function NavMobile({categories, user}:Props) {
     return (
         <div className={styles.nav} style={{zIndex: isOpenMenu ? 1000 : 10}}>
             <div className={styles.actions}>
-                <Link href={'/'} className={cn(styles.navItem, path === '/' && styles.active)}>
+                <Link href={'/'} className={cn(styles.navItem, path === '/' && styles.active)} onClick={closeMenu}>
                     <HomeIcon/>
                 </Link>
                 <button className={cn(styles.navItem, isOpenMenu && styles.active)} onClick={toggleMenu}>
                     <MenuIcon/>
                 </button>
-                <Link href={'/lk/favorites'} className={cn(styles.navItem, path === '/lk/favorites' && styles.active)}>
+                <Link href={'/lk/favorites'} className={cn(styles.navItem, path === '/lk/favorites' && styles.active)} onClick={closeMenu}>
                     <FavoritesIcon/>
                     {favoriteProducts && favoriteProducts?.length > 0 && (
                         <span className={styles.counter}>{favoriteProducts.length}</span>
                     )}
                 </Link>
-                <Link href={'/lk/basket'} className={cn(styles.navItem, path === '/lk/basket' && styles.active)}>
+                <Link href={'/lk/basket'} className={cn(styles.navItem, path === '/lk/basket' && styles.active)} onClick={closeMenu}>
                     <BasketIcon/>
                     {basketProducts && basketProducts?.length > 0 && (
                         <span className={styles.counter}>{basketProducts.length}</span>
                     )}
                 </Link>
-                <Link href={'/lk/orders'} className={cn(styles.navItem, path === '/lk/orders' && styles.active)}>
+                <Link href={'/lk/orders'} className={cn(styles.navItem, path === '/lk/orders' && styles.active)} onClick={closeMenu}>
                     <UserIcon/>
                 </Link>
             </div>
