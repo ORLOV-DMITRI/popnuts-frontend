@@ -39,7 +39,7 @@ export default function ProductDetail({product}: Props) {
     
     const handleAddFavorites = () => {
         if (!user) {
-            router.push('/login')
+            router.push(`/login/${product.category}/${product.id}`)
         }
         const favoriteProduct = convertProductFavorite(product);
         mutate(favoriteProduct)
@@ -51,7 +51,7 @@ export default function ProductDetail({product}: Props) {
     
     const handleAddBasket = () => {
         if (!user) {
-            router.push('/login')
+            router.push(`/login/${product.category}/${product.id}`)
         }
         if (product) {
             const basketProducts = convertProductFavorite(product);
