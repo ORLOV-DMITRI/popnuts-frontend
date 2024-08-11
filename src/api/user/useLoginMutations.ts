@@ -12,6 +12,9 @@ export const useLoginMutation = () => {
         onSuccess: (data) => {
             Cookies.set('token', data.token);
             queryClient.invalidateQueries({queryKey: ['user']});
+            queryClient.invalidateQueries({queryKey: ['favorites']});
+            queryClient.invalidateQueries({queryKey: ['basket']});
+            queryClient.invalidateQueries({queryKey: ['order']});
         },
         onError: (error: Error) => {
             throw error.message;
