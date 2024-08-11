@@ -127,16 +127,22 @@ export default function ProductDetail({product}: Props) {
                     </div>
                     <Thermometer stock={product.stock} className={styles.thermometerWrap}/>
                     <div className={styles.actions}>
-                        {isBasket ?
-                            (
-                                <Button variant={'secondary'}>
-                                    <Link href={'/lk/basket'}>In cart</Link>
-                                </Button>
-                            ) :
-                            (
-                                <Button onClick={handleAddBasket}>Add to cart</Button>
-                            )
-                        }
+                        {product.stock === 0 && (
+                            <Button variant={'disabled'}>Not available</Button>
+                        )}
+                        {product.stock > 0 && (
+                            isBasket ?
+                                (
+                                    <Button variant={'secondary'}>
+                                        <Link href={'/lk/basket'}>In cart</Link>
+                                    </Button>
+                                ) :
+                                (
+                                    <Button onClick={handleAddBasket}>Add to cart</Button>
+                                )
+                        
+                        )}
+                        
                         <button className={cn(styles.favorites, isFavorite && styles.active)}
                                 onClick={handleAddFavorites}><LikeIcon/></button>
                     </div>

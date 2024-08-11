@@ -74,16 +74,21 @@ export default function ProductQuickView({product, onClose, onAddFavorites, isFa
                         {product.description}
                     </div>
                     <div className={styles.actions}>
-                        {isBasket ?
-                            (
-                                <Button variant={'secondary'}>
-                                    <Link href={'/lk/basket'}>In cart</Link>
-                                </Button>
-                            ) :
-                            (
-                                <Button onClick={onAddBasket}>Add to cart</Button>
-                            )
-                        }
+                        {product.stock === 0 && (
+                                <Button variant={'disabled'}>Not available</Button>
+                        )}
+                        {product.stock > 0 && (
+                            isBasket ?
+                                (
+                                    <Button variant={'secondary'}>
+                                        <Link href={'/lk/basket'}>In cart</Link>
+                                    </Button>
+                                ) :
+                                (
+                                    <Button onClick={onAddBasket}>Add to cart</Button>
+                                )
+                        
+                        )}
                         <button className={cn(styles.favorites, isFavorite && styles.active)} onClick={onAddFavorites}>
                             <LikeIcon/>
                         </button>
