@@ -138,7 +138,7 @@ export default function BasketContent() {
                     )
                     :
                     (
-                        basketProducts?.length > 0 && (
+                        basketProducts && basketProducts?.length > 0 && (
                             <Button onClick={handleCheckOrder}>Order</Button>
                         )
                     )
