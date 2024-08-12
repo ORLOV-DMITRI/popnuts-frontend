@@ -7,6 +7,7 @@ import OrdersIcon from '/public/svg/orders.svg'
 import WalletIcon from '/public/svg/wallet.svg'
 import {usePathname} from "next/navigation";
 import cn from "classnames";
+import useLogout from "@/api/user/useLogout";
 const navLinks = [
     {
         name: 'Favorites',
@@ -31,6 +32,8 @@ const navLinks = [
 ]
 
 export default function LkNavigation() {
+    const handleLogout = useLogout()
+
     const path = usePathname()
     return (
         <div className={styles.nav}>
@@ -43,7 +46,7 @@ export default function LkNavigation() {
                         </Link>
                     </li>
                 ))}
-                <li  className={styles.navItem}>
+                <li  className={styles.navItem} onClick={handleLogout}>
                     <div className={cn(styles.navLink)}>
                         <span>Logout</span>
                     </div>
