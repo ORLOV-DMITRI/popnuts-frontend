@@ -8,11 +8,11 @@ export default function ProfileLayout({
                                          }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const {data: user} = useUserQuery()
-    const router = useRouter()
-    if(!user) {
-        router.push('/login')
-    }
+    // const {data: user} = useUserQuery()
+    // const router = useRouter()
+    // if(!user) {
+    //     router.push('/login')
+    // }
     return (
         <section>
             <LkNavigation/>

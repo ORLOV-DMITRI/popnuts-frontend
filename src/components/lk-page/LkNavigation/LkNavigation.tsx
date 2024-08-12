@@ -43,6 +43,11 @@ export default function LkNavigation() {
                         </Link>
                     </li>
                 ))}
+                <li  className={styles.navItem}>
+                    <div className={cn(styles.navLink)}>
+                        <span>Logout</span>
+                    </div>
+                </li>
             </ul>
         </div>
     );

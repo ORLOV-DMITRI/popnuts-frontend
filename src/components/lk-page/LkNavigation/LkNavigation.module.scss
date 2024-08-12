@@ -25,6 +25,10 @@
 }
 .navItem {
     display: flex;
+    
+    &:last-child .navLink {
+        color: #9d9da5;
+    }
 }
 .icon {
     width: 20px;
@@ -59,7 +63,7 @@
     }
     @include xs {
         padding: 0;
-        font-size: 14px;
+        font-size: 13px;
     }
 }
 .navLink.active {
